@@ -40,31 +40,13 @@
                 type="text" 
                 id="searchInput" 
                 class="search-input" 
-                placeholder="🔍 Search by task, role, category, or keyword..."
+                placeholder="🔍 Search SOPs by name, task, or keyword..."
                 autocomplete="off"
             >
             <div class="search-hints">
                 Try: <button type="button" class="hint" data-suggest="pipeline">pipeline</button>
                 <button type="button" class="hint" data-suggest="export">export</button>
                 <button type="button" class="hint" data-suggest="form submission">form submission</button>
-            </div>
-        </div>
-
-        <div class="filters" id="filterBar">
-            <div class="filter-group">
-                <span class="filter-label">Category:</span>
-                <button class="filter-btn active" data-group="category" data-value="all">All</button>
-                <button class="filter-btn" data-group="category" data-value="forms">Forms</button>
-                <button class="filter-btn" data-group="category" data-value="contacts">Contacts</button>
-                <button class="filter-btn" data-group="category" data-value="pipeline">Pipeline</button>
-            </div>
-            <div class="filter-group">
-                <span class="filter-label">Role:</span>
-                <button class="filter-btn active" data-group="role" data-value="all">All</button>
-                <button class="filter-btn" data-group="role" data-value="admin">Admin</button>
-                <button class="filter-btn" data-group="role" data-value="isa">ISA</button>
-                <button class="filter-btn" data-group="role" data-value="agent">Agent</button>
-                <button class="filter-btn" data-group="role" data-value="recruiter">Recruiter</button>
             </div>
         </div>
 
@@ -151,7 +133,7 @@
         
         <div id="noResults" class="no-results" style="display: none;">
             <h3>No SOPs match your search</h3>
-            <p>Try checking spelling, using simpler keywords, clearing filters, or browsing by category.</p>
+            <p>Try checking spelling, using simpler keywords, or browsing the full list below.</p>
         </div>
     </div>
     

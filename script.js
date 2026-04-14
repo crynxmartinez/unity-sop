@@ -1,16 +1,12 @@
-// Search + filters
+// Search functionality
 function initSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
 
     const sopCards = document.querySelectorAll('.sop-card');
     const noResults = document.getElementById('noResults');
-    const activeFilters = {
-        category: 'all',
-        role: 'all'
-    };
 
-    function applySearchAndFilters() {
+    function applySearch() {
         const searchTerm = searchInput.value.trim().toLowerCase();
         let visibleCount = 0;
 
@@ -26,16 +22,9 @@ function initSearch() {
                 tags.includes(searchTerm) ||
                 details.includes(searchTerm);
 
-            const categories = (card.dataset.category || '').toLowerCase();
-            const roles = (card.dataset.role || '').toLowerCase();
+            card.style.display = searchMatches ? 'block' : 'none';
 
-            const categoryMatches = activeFilters.category === 'all' || categories.includes(activeFilters.category);
-            const roleMatches = activeFilters.role === 'all' || roles.includes(activeFilters.role);
-
-            const isVisible = searchMatches && categoryMatches && roleMatches;
-            card.style.display = isVisible ? 'block' : 'none';
-
-            if (isVisible) {
+            if (searchMatches) {
                 visibleCount += 1;
             }
         });
@@ -45,7 +34,7 @@ function initSearch() {
         }
     }
 
-    searchInput.addEventListener('input', applySearchAndFilters);
+    searchInput.addEventListener('input', applySearch);
 
     const hintButtons = document.querySelectorAll('.hint[data-suggest]');
     hintButtons.forEach(btn => {
@@ -53,28 +42,11 @@ function initSearch() {
             const suggestion = this.dataset.suggest || '';
             searchInput.value = suggestion;
             searchInput.focus();
-            applySearchAndFilters();
+            applySearch();
         });
     });
 
-    const filterButtons = document.querySelectorAll('.filter-btn[data-group][data-value]');
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const group = this.dataset.group;
-            const value = this.dataset.value;
-            if (!group || !value) return;
-
-            activeFilters[group] = value;
-
-            const groupButtons = document.querySelectorAll(`.filter-btn[data-group="${group}"]`);
-            groupButtons.forEach(groupBtn => groupBtn.classList.remove('active'));
-            this.classList.add('active');
-
-            applySearchAndFilters();
-        });
-    });
-
-    applySearchAndFilters();
+    applySearch();
 }
 
 // Back to top button
