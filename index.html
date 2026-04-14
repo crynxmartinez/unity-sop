@@ -10,28 +10,75 @@
     <div class="header">
         <h1>📚 Unity SOP Library</h1>
         <p>Standard Operating Procedures</p>
-        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Your Complete Guide to Business Processes</p>
+        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Find the right SOP fast and complete tasks with confidence</p>
     </div>
     
     <div class="container">
+        <div class="quick-start-grid">
+            <section class="quick-panel">
+                <h2>🚀 Start Here</h2>
+                <ul>
+                    <li><a href="yfl-form.html">How to Process a YFL Form Submission</a></li>
+                    <li><a href="yfl-form.html#section2">How to Export YFL Contacts</a></li>
+                    <li><a href="yfl-form.html#section3">How to Track YFL Leads in the Pipeline</a></li>
+                </ul>
+            </section>
+            <section class="quick-panel">
+                <h2>⭐ Most Used SOPs</h2>
+                <ul>
+                    <li><a href="yfl-form.html">Process New YFL Submission</a></li>
+                    <li><a href="yfl-form.html#section2">Export Contacts for Reporting</a></li>
+                    <li><a href="yfl-form.html#section3">Move Leads Through Pipeline Stages</a></li>
+                </ul>
+            </section>
+        </div>
+
         <div class="search-bar">
             <input 
                 type="text" 
                 id="searchInput" 
                 class="search-input" 
-                placeholder="🔍 Search SOPs by name, description, or tags..."
+                placeholder="🔍 Search by task, role, category, or keyword..."
                 autocomplete="off"
             >
+            <div class="search-hints">
+                Try: <button type="button" class="hint" data-suggest="pipeline">pipeline</button>
+                <button type="button" class="hint" data-suggest="export">export</button>
+                <button type="button" class="hint" data-suggest="form submission">form submission</button>
+            </div>
+        </div>
+
+        <div class="filters" id="filterBar">
+            <div class="filter-group">
+                <span class="filter-label">Category:</span>
+                <button class="filter-btn active" data-group="category" data-value="all">All</button>
+                <button class="filter-btn" data-group="category" data-value="forms">Forms</button>
+                <button class="filter-btn" data-group="category" data-value="contacts">Contacts</button>
+                <button class="filter-btn" data-group="category" data-value="pipeline">Pipeline</button>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Role:</span>
+                <button class="filter-btn active" data-group="role" data-value="all">All</button>
+                <button class="filter-btn" data-group="role" data-value="admin">Admin</button>
+                <button class="filter-btn" data-group="role" data-value="isa">ISA</button>
+                <button class="filter-btn" data-group="role" data-value="agent">Agent</button>
+            </div>
         </div>
         
         <div class="sop-grid">
-            <a href="yfl-form.html" class="sop-card">
+            <a href="yfl-form.html" class="sop-card" data-category="forms contacts pipeline" data-role="admin isa agent" data-level="easy" data-frequency="daily" data-duration="3-5 min">
                 <div class="sop-icon">📋</div>
-                <h3>YFL Form SOP</h3>
-                <p>Complete guide for managing Your First Listing form submissions, exporting contacts, and tracking opportunities through the sales pipeline.</p>
+                <h3>How to Process a YFL Form Submission</h3>
+                <p>Step-by-step process to review new YFL entries, export contacts, and move leads into the right pipeline stage.</p>
+                <dl class="card-details">
+                    <div><dt>For:</dt><dd>Admin, ISA, Agent</dd></div>
+                    <div><dt>Use when:</dt><dd>A new YFL form is submitted</dd></div>
+                    <div><dt>Time:</dt><dd>3-5 min</dd></div>
+                    <div><dt>Difficulty:</dt><dd>Easy</dd></div>
+                </dl>
                 <div class="sop-meta">
-                    <span class="tag">Forms & Submissions</span>
-                    <span class="tag">Contact Management</span>
+                    <span class="tag">Forms</span>
+                    <span class="tag">Contacts</span>
                     <span class="tag">Pipeline</span>
                 </div>
                 <span class="date">Last updated: April 14, 2026</span>
@@ -52,8 +99,8 @@
         </div>
         
         <div id="noResults" class="no-results" style="display: none;">
-            <h3>No SOPs Found</h3>
-            <p>Try adjusting your search terms</p>
+            <h3>No SOPs match your search</h3>
+            <p>Try checking spelling, using simpler keywords, clearing filters, or browsing by category.</p>
         </div>
     </div>
     

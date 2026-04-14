@@ -1,36 +1,80 @@
-// Search functionality
+// Search + filters
 function initSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
-    
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const sopCards = document.querySelectorAll('.sop-card');
+
+    const sopCards = document.querySelectorAll('.sop-card');
+    const noResults = document.getElementById('noResults');
+    const activeFilters = {
+        category: 'all',
+        role: 'all'
+    };
+
+    function applySearchAndFilters() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
         let visibleCount = 0;
-        
+
         sopCards.forEach(card => {
-            const name = card.querySelector('h3').textContent.toLowerCase();
-            const description = card.querySelector('p').textContent.toLowerCase();
+            const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+            const description = card.querySelector('p')?.textContent.toLowerCase() || '';
             const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-            
-            const matches = name.includes(searchTerm) || 
-                          description.includes(searchTerm) || 
-                          tags.includes(searchTerm);
-            
-            if (matches) {
-                card.style.display = 'block';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
+            const details = card.querySelector('.card-details')?.textContent.toLowerCase() || '';
+
+            const searchMatches =
+                name.includes(searchTerm) ||
+                description.includes(searchTerm) ||
+                tags.includes(searchTerm) ||
+                details.includes(searchTerm);
+
+            const categories = (card.dataset.category || '').toLowerCase();
+            const roles = (card.dataset.role || '').toLowerCase();
+
+            const categoryMatches = activeFilters.category === 'all' || categories.includes(activeFilters.category);
+            const roleMatches = activeFilters.role === 'all' || roles.includes(activeFilters.role);
+
+            const isVisible = searchMatches && categoryMatches && roleMatches;
+            card.style.display = isVisible ? 'block' : 'none';
+
+            if (isVisible) {
+                visibleCount += 1;
             }
         });
-        
-        // Show/hide no results message
-        const noResults = document.getElementById('noResults');
+
         if (noResults) {
             noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
+    }
+
+    searchInput.addEventListener('input', applySearchAndFilters);
+
+    const hintButtons = document.querySelectorAll('.hint[data-suggest]');
+    hintButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const suggestion = this.dataset.suggest || '';
+            searchInput.value = suggestion;
+            searchInput.focus();
+            applySearchAndFilters();
+        });
     });
+
+    const filterButtons = document.querySelectorAll('.filter-btn[data-group][data-value]');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const group = this.dataset.group;
+            const value = this.dataset.value;
+            if (!group || !value) return;
+
+            activeFilters[group] = value;
+
+            const groupButtons = document.querySelectorAll(`.filter-btn[data-group="${group}"]`);
+            groupButtons.forEach(groupBtn => groupBtn.classList.remove('active'));
+            this.classList.add('active');
+
+            applySearchAndFilters();
+        });
+    });
+
+    applySearchAndFilters();
 }
 
 // Back to top button
