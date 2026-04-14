@@ -26,7 +26,7 @@ body {
 .header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
     box-shadow: var(--shadow);
 }
@@ -170,6 +170,52 @@ body {
     border-color: var(--primary);
     background: rgba(102, 126, 234, 0.08);
     color: var(--primary);
+}
+
+.quick-actions {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.quick-actions h3 {
+    color: var(--primary);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.action-btn:hover {
+    border-color: var(--primary);
+    background: rgba(102, 126, 234, 0.05);
+    transform: translateY(-2px);
+}
+
+.action-icon {
+    font-size: 28px;
 }
 
 .sop-grid {
@@ -487,12 +533,175 @@ body {
     transform: translateY(-5px);
 }
 
+.sop-metadata {
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metadata-item strong {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.metadata-item span {
+    color: #333;
+    font-weight: 600;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.status-badge.active {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-badge.draft {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.status-badge.review {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.feedback-section {
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    padding: 30px 0;
+}
+
+.feedback-box {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.feedback-box h3 {
+    color: var(--primary);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.feedback-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feedback-btn {
+    padding: 12px 24px;
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+.feedback-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.onboarding-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+    padding: 50px 20px;
+    margin-top: 40px;
+}
+
+.role-paths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.role-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.role-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.role-card h3 {
+    color: var(--primary);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.role-card p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.role-steps {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.role-steps li {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.role-steps a {
+    color: #444;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.role-steps a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 30px 20px;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .footer p {
@@ -529,6 +738,36 @@ body {
     color: white;
     font-size: 40px;
     cursor: pointer;
+}
+
+.related-sops {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.related-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.related-link:hover {
+    border-color: var(--primary);
+    background: rgba(102, 126, 234, 0.05);
+    transform: translateX(4px);
+}
+
+.related-icon {
+    font-size: 20px;
 }
 
 .no-results {

@@ -8,7 +8,27 @@ A comprehensive, searchable library of Standard Operating Procedures (SOPs) for 
 
 ## 📋 Features
 
-- **Searchable Library** - Find SOPs quickly by name, description, or tags
+### Phase 1: UX Foundations
+- **Searchable Library** - Find SOPs by name, description, tags, or role
+- **Category & Role Filters** - Filter by Forms, Contacts, Pipeline, Admin, ISA, Agent
+- **Task-Based Titles** - SOPs named as "How to..." for natural search
+- **Rich Card Metadata** - Shows who, when, time, and difficulty before clicking
+- **Start Here & Most Used** - Guided entry points for new users
+- **Search Hints** - Suggested search terms to help users find content
+
+### Phase 2: Support-First Flow
+- **Quick Actions** - One-click access to common tasks
+- **Related SOPs** - Discover connected workflows easily
+- **Full SOP Template** - Purpose, Tools, Steps, Common Mistakes, Expected Outcome
+- **Optimized Above-Fold** - Reduced header height, content-first layout
+
+### Phase 3: Governance & Onboarding
+- **SOP Metadata** - Owner, Version, Status, Approved By, Last Updated
+- **Feedback System** - "Was this helpful?" with improvement requests
+- **Role-Based Onboarding** - Guided paths for Admin, ISA, and Agent roles
+- **Status Badges** - Active, Draft, Under Review indicators
+
+### Technical
 - **Responsive Design** - Works perfectly on desktop, tablet, and mobile
 - **GHL Integration Ready** - Optimized for iframe embedding in GoHighLevel
 - **Modern UI** - Clean, professional interface with smooth animations
