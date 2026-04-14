@@ -57,6 +57,14 @@ Complete guide for managing Your First Listing form submissions, including:
 - Video tutorial walkthrough
 - QR code for quick form access
 
+### New Member Form SOP
+Complete guide for managing new member registrations, including:
+- Viewing new member submissions in Smartlist
+- Exporting member data to CSV/Excel
+- Managing members through onboarding pipeline
+- QR code for quick registration access
+- Recruitment and onboarding workflows
+
 ## 🔧 Adding New SOPs
 
 1. Create a new HTML file (e.g., `new-sop.html`)
