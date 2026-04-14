@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity SOP Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Unity SOP Library</h1>
+        <p>Standard Operating Procedures</p>
+        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Your Complete Guide to Business Processes</p>
+    </div>
+    
+    <div class="container">
+        <div class="search-bar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="🔍 Search SOPs by name, description, or tags..."
+                autocomplete="off"
+            >
+        </div>
+        
+        <div class="sop-grid">
+            <a href="yfl-form.html" class="sop-card">
+                <div class="sop-icon">📋</div>
+                <h3>YFL Form SOP</h3>
+                <p>Complete guide for managing Your First Listing form submissions, exporting contacts, and tracking opportunities through the sales pipeline.</p>
+                <div class="sop-meta">
+                    <span class="tag">Forms & Submissions</span>
+                    <span class="tag">Contact Management</span>
+                    <span class="tag">Pipeline</span>
+                </div>
+                <span class="date">Last updated: April 14, 2026</span>
+            </a>
+            
+            <!-- Future SOPs will be added here -->
+            <!-- Example template:
+            <a href="another-sop.html" class="sop-card">
+                <div class="sop-icon">🎯</div>
+                <h3>Another SOP</h3>
+                <p>Description of the SOP...</p>
+                <div class="sop-meta">
+                    <span class="tag">Category</span>
+                </div>
+                <span class="date">Last updated: Date</span>
+            </a>
+            -->
+        </div>
+        
+        <div id="noResults" class="no-results" style="display: none;">
+            <h3>No SOPs Found</h3>
+            <p>Try adjusting your search terms</p>
+        </div>
+    </div>
+    
+    <div class="back-to-top" id="backToTop">
+        ↑
+    </div>
+    
+    <div class="footer">
+        <p><strong>Unity SOP Library</strong></p>
+        <p>Streamlining Operations, One Process at a Time</p>
+        <p style="margin-top: 10px; opacity: 0.8;">© 2026 Unity. All rights reserved.</p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
