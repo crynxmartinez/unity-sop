@@ -65,6 +65,14 @@ Complete guide for managing new member registrations, including:
 - QR code for quick registration access
 - Recruitment and onboarding workflows
 
+### Check Form Submissions SOP
+Quick guide for accessing any form submissions in GoHighLevel, including:
+- Navigating to Sites menu (red checkbox icon)
+- Accessing the Submissions section
+- Selecting which form to view
+- Reviewing submission details
+- Exporting submission data
+
 ## 🔧 Adding New SOPs
 
 1. Create a new HTML file (e.g., `new-sop.html`)
