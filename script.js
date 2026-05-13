@@ -118,9 +118,75 @@ function downloadQR() {
     document.body.removeChild(link);
 }
 
+// Table of Contents - Smooth scroll and active section tracking
+function initTableOfContents() {
+    const tocLinks = document.querySelectorAll('.toc-list a, .toc-sidebar-list a');
+    const sections = document.querySelectorAll('.section[id]');
+    const tocSidebar = document.querySelector('.toc-sidebar');
+    
+    if (tocLinks.length === 0) return;
+    
+    // Smooth scroll on click
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const headerOffset = 20;
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Active section tracking on scroll
+    function updateActiveSection() {
+        const scrollPosition = window.pageYOffset + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                // Remove active from all links
+                document.querySelectorAll('.toc-sidebar-list a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active to current section link
+                const activeLink = document.querySelector(`.toc-sidebar-list a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+        
+        // Show/hide sidebar based on scroll position
+        if (tocSidebar) {
+            if (window.pageYOffset > 400) {
+                tocSidebar.classList.add('visible');
+            } else {
+                tocSidebar.classList.remove('visible');
+            }
+        }
+    }
+    
+    window.addEventListener('scroll', updateActiveSection);
+    updateActiveSection(); // Initial check
+}
+
 // Initialize all functions when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initBackToTop();
     initImageModal();
+    initTableOfContents();
 });
